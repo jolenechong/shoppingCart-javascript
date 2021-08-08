@@ -17,6 +17,7 @@
     border-radius: 10px;
     display: inline-block;
     padding: 10px;
+    margin: 10px;
 }
 
 .item button{
@@ -34,8 +35,9 @@
     margin-top: 25px;
 }
 #popupCart{
-    position: absolute;
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(70, 70, 70, 0.5);
@@ -92,4 +94,12 @@
     color: white;
     border: none;
     float: right;
+}
+
+@media screen and (max-width: 600px) {
+    .popupContainer{
+        position: inherit;
+        left: 10%;
+        width: 300px;
+    }
 }
