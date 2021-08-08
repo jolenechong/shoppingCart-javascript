@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Javascript Shopping Cart</title>
+</head>
+<body>
+    <main style="display: flex; justify-content: center;padding-top: 75px;">
+        <div>
+    <div class="item" id="Apple">
+        <img src="https://i.ibb.co/kMMMVxN/932-9328492-apple-png-free-image-download-apfel-bild-removebg-preview.png">
+        <h2>Apple</h2>
+        <p>Price: $5</p>
+        <button onclick="addToCart(5,'Apple')">Add to cart</button>
+    </div>
+    <div class="item" id="Banana">
+        <img src="https://i.ibb.co/pzfwJpm/download-1-removebg-preview.png">
+        <h2>Banana</h2>
+        <p>Price: $10</p>
+        <button onclick="addToCart(10,'Banana')">Add to cart</button>
+    </div>
+    <div class="item" id="Pizza">
+        <img src="https://i.ibb.co/2ssWv0c/117179599-pepperoni-pizza-top-view-removebg-preview.png" style="padding-left: 40px;">
+        <h2>Pizza</h2>
+        <p>Price: $50</p>
+        <button onclick="addToCart(50,'Pizza')">Add to cart</button>
+    </div>
+    <div class="item" id="Ice Cream">
+        <img src="https://i.ibb.co/Pcj3Mhd/Ice-Cream-1-1024x536-removebg-preview.png" style="margin-left: -25px;">
+        <h2>Ice Cream</h2>
+        <p>Price: $40</p>
+        <button onclick="addToCart(40,'Ice Cream')">Add to cart</button>
+    </div>
+    <br>
+    <button onclick="viewCart()" class="viewCart">View Cart (<span id="viewCart">0</span>)</button>
+</div>
+</main>
+<div id="popupCart" style="display: none;">
+    <div class="popupContainer">
+    <h3>Your Cart</h3><span onclick="closePopup()" style="cursor: pointer;position: absolute;top:20px;left:90%;">X</span>
+    <hr>
+    <ul id="items">
+    </ul>
+    <h3>Total Price: $<span id="priceHere">0</span></h3>
+    <button id="orderNow">Order Now</button>
+    <button id="clearCart" onclick="clearCart()">Clear</button>
+</div>
+</div>
+</body>
+</html>
