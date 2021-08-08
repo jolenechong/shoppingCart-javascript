@@ -1,134 +1,13 @@
-
-// let cart = []
-// let totalPrice = 0
-
-// function addToCart(item,price) {
-//     // alert(item+" added to Cart!")
-//     // totalPrice += price
-//     document.getElementById("viewCart").innerHTML=cart.length +1
-//     var itemNPrice = {}
-//     itemNPrice.price = price
-//     itemNPrice.item = item
-//     console.log(itemNPrice)
-//     return cart.push(itemNPrice)
-// }
-
-// function removeFromCart(name){
-//     for(var item in cart){
-//         if (cart[item].name === name){
-//             cart.pop(item)
-//         }
-//     }
-// }
-
-// function viewCart(){
-//     document.getElementById("popupCart").style.display="";
-
-//     if( cart != []){
-//         console.log("hewo"+cart[0].item)
-//         saveCart()
-//         console.log("hi")
-//     }
-// }
-
-// function saveCart(){
-//     // document.getElementById("popupCart").style.display=""
-//     // document.getElementById("items").innerHTML = ""
-
-//         for(i=0;i<cart.length;i++){
-//             var li = document.createElement("LI")
-//             console.log("this here"+cart[i].item)
-
-//             var item  = document.createTextNode(cart[i].item)
-//             var price = document.createTextNode(cart[i].price)
-//             var button = document.createElement("button")
-//             button.type = 'button';
-//             button.innerHTML = 'X';
-//             button.className = 'removeItem';
-//             button.value = i
-//             // console.log(button.value)
-//             // console.log(button.innerText)
-
-//             // button.onclick = function(){
-//             //     var index = this.cart[i]["item"].indexOf()
-//             //     cart.splice(index)
-//             //     console.log(cart)
-//             //     viewCart()
-//             // }
-                    
-//             li.appendChild(item)
-//             li.appendChild(price)
-//             li.appendChild(button)
-//             document.getElementById("items").appendChild(li)
-//             totalPrice += cart[i]["price"]
-        
-//         }
-//         document.getElementById("totalPrice").innerHTML= "$"+totalPrice
-//         var close = document.getElementsByClassName("removeItem");
-//         // var itemval = close[1].value;
-//         // alert("item val ="+itemval);
-//         var i;
-//         for (i = 0; i < close.length; i++) {
-//             // console.log("here"+close[i].value)
-//             // cart.splice(close[i].value)
-//             // var itemval = close[i].value
-        
-//             close[i].onclick = function() {
-//                 var div = this.parentElement;
-//                 div.style.display = "none";
-//                 var val = this.value;
-//                 // alert(val)
-//                 // // Herererere remove the cart[itemval] .... if possible
-//                 // console.log("heres"+close[i].value)
-
-
-//                 // console.log(cart[0,1]["item"])
-//                 var endd = []
-//                 for (i = 0; i < close.length; i++) {
-//                     var end = cart[i].item
-//                     console.log(end)
-//                     endd.push(end)
-//                 }
-//                 console.log(endd)
-
-//                 alert(endd[val])
-//                 function checkValue(value){
-//                     return value != endd[val]
-//                 }
-
-                
-//                 productsLeft = endd.filter(checkValue)
-//                 console.log(productsLeft);
-//                 document.getElementById("viewCart").innerHTML=cart.length -1
-
-//                 for (i = 0; i < close.length; i++){
-//                     if(cart[i].item != productsLeft){
-//                         delete cart[i]
-//                         // const index = cart.indexOf(cart[i])
-//                         // cart.splice(index,1)
-//                         function removeNull(array) {
-//                             return array.filter(x => x !== null)
-//                             };
-//                         console.log(removeNull(cart))
-//                     }
-//                 }
-
-//         }
-//         console.log(cart)
-//         }
-        
-//     }
-
 cart = []
 totalPrice = 0
-addNew = false
+addNew = false 
 
 function addToCart(price,item) {
-    itemNprice = {"price":price,"item":item}
+    itemNprice = {"price":price,"item":item} //adding price and item name to an object
     console.log(itemNprice)
-    cart.push(itemNprice)
+    cart.push(itemNprice) //push each object into array called cart
     console.log(cart)
-    addNew = true
+    addNew = true //so that when viewCart() is called it will add these values
     document.getElementById("viewCart").innerHTML=cart.length
 }
 function saveCart() {
@@ -137,11 +16,13 @@ function saveCart() {
 
 function viewCart(){
     if(addNew == true){
-        document.getElementById("items").innerHTML = ""
-        document.getElementById("popupCart").style.display=""
+        document.getElementById("items").innerHTML = "" //clear items in cart
+        document.getElementById("popupCart").style.display="" //display cart popup
+
         totalPrice = 0
         addNew = false
-        for(i=0;i<cart.length;i++){
+        
+        for(i=0;i<cart.length;i++){ //creating a new li for each item added from addToCart()
             var li = document.createElement("LI")
 
             var item  = document.createTextNode(cart[i].item)
@@ -161,55 +42,63 @@ function viewCart(){
             totalPrice += cart[i].price
             document.getElementById("priceHere").innerHTML = totalPrice
         
-        }    
-
-        var close = document.getElementsByClassName("removeItem");
-        var i;
-            for (i = 0; i < close.length; i++) {
-
-            
-                close[i].onclick = function() {
-                    var div = this.parentElement;
-                    div.style.display = "none";
-                    var val = this.value;
-
-                    var endd = []
-                    for (i = 0; i < close.length; i++) {
-                        var end = cart[i].item
-                        console.log(end)
-                        endd.push(end)
-                    }
-                    console.log(endd)
-                    function checkValue(value){
-                        return value != endd[val]
-                    }
-
-                    
-                    productsLeft = endd.filter(checkValue)
-                    productsLeft = productsLeft.toString()
-                    console.log(productsLeft);
-
-                    document.getElementById("viewCart").innerHTML=cart.length -1
-                    console.log(cart)
-
-                    for (i = 0; i < close.length; i++){
-                        if(cart[i].item != productsLeft){
-                            totalPrice = totalPrice - cart[i].price
-                            document.getElementById("priceHere").innerHTML = totalPrice
-
-                            delete cart[i]
-                            
-                            console.log(removeNull(cart))
-                            cart = removeNull(cart)
-                        }
-                    }
-
-                }
-            }
+        }  
+        
+        closeIt() //what happens when clicking  X button
+        
     }else{
-    alert("Your cart is empty.")
+    document.getElementById("popupCart").style.display="" //display popup even if there's nothing new to add
+}
 }
 
+function closeIt(){
+    var close = document.getElementsByClassName("removeItem");
+    var i;
+    for (i = 0; i < close.length; i++) {
+    
+        close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none"; //display none for the item clicked
+            var val = this.value; //getting value of button
+
+            var endd = []
+            for (i = 0; i < close.length; i++) {//push all item name to endd array
+                var end = cart[i].item
+                console.log(end)
+                endd.push(end)
+            }
+
+            console.log(endd)//shows an array of all the current fuds, before deleting
+
+            function checkValue(value){
+                return value != endd[val]
+            }
+
+            
+            productsLeft = endd.filter(checkValue) //filters away all items with same value as the  one clicked
+            
+            // productsLeft = productsLeft.toString()
+            console.log("products left"+productsLeft);
+
+            document.getElementById("viewCart").innerHTML=cart.length -1
+            console.log(cart)
+
+            for (i = 0; i < close.length; i++){
+                if(cart[i].item != productsLeft[i]){
+                    totalPrice = totalPrice - cart[i].price
+                    document.getElementById("priceHere").innerHTML = totalPrice
+
+                    delete cart[i] //deleting the items, leaves null
+                    
+                    console.log(removeNull(cart))
+                    cart = removeNull(cart) //removing null
+                }else{
+                    console.log("nothing")
+                }
+            }
+
+        }
+    }
 }
 
 function removeNull(array) {
