@@ -35,8 +35,18 @@
         <p>Price: $40</p>
         <button onclick="addToCart(40,'Ice Cream')">Add to cart</button>
     </div>
+    <div class="item" id="Burger">
+        <img src="https://i.ibb.co/7WDzPRd/CHUBBY-CHICKEN-SANDWICH.png">
+        <h2>Burger</h2>
+        <p>Price: $100</p>
+        <button onclick="addToCart(100,'Burger')">Add to cart</button>
+    </div>
     <br>
-    <button onclick="viewCart()" class="viewCart">View Cart (<span id="viewCart">0</span>)</button>
+
+    <div id="cartButtons">
+        <button onclick="viewCart()" class="viewCart">View Cart (<span id="viewCart">0</span>)</button>
+    </div>
+
 </div>
 </main>
 <div id="popupCart" style="display: none;">
@@ -46,7 +56,7 @@
     <ul id="items">
     </ul>
     <h3>Total Price: $<span id="priceHere">0</span></h3>
-    <button id="orderNow">Order Now</button>
+    <button id="orderNow" onclick="orderNow()">Order Now</button>
     <button id="clearCart" onclick="clearCart()">Clear</button>
 </div>
 </div>
