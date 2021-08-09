@@ -77,14 +77,13 @@ function closeIt(){
             
             productsLeft = endd.filter(checkValue) //filters away all items with same value as the  one clicked
             
-            // productsLeft = productsLeft.toString()
             console.log("products left"+productsLeft);
 
             document.getElementById("viewCart").innerHTML=cart.length -1
             console.log(cart)
 
             for (i = 0; i < close.length; i++){
-                if(cart[i].item != productsLeft[i]){
+                if(cart[i].item!= productsLeft[i]){
                     totalPrice = totalPrice - cart[i].price
                     document.getElementById("priceHere").innerHTML = totalPrice
 
@@ -92,10 +91,17 @@ function closeIt(){
                     
                     console.log(removeNull(cart))
                     cart = removeNull(cart) //removing null
+
+                    break
+                    //to break out of the loop once the deleted one is found
                 }else{
                     console.log("nothing")
                 }
             }
+
+            addNew = true;
+            viewCart();
+            //to reload cart items
 
         }
     }
@@ -117,4 +123,21 @@ function clearCart(){
     document.getElementById("items").innerHTML = ""
     document.getElementById("priceHere").innerHTML= +totalPrice
     document.getElementById("viewCart").innerHTML=0
+}
+
+function orderNow() {
+    // var cartItems = []
+    // console.log(cart)
+
+    // for (i = 0; i < cart.length; i++){
+    //     console.log("this"+ cart[i].items)
+    //     cartItems.push(cart[i].items)
+    // }
+    // console.log(cartItems)
+    console.log(cart)
+    if( cart.length == 0){
+        alert("Cart is empty.")
+    }else{
+        alert("Order placed :D")
+    }
 }
