@@ -32,7 +32,6 @@
     background-color: green;
     color: white;
     border: none;
-    margin-top: 25px;
 }
 #popupCart{
     position: fixed;
@@ -96,10 +95,28 @@
     float: right;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) { /*desktop view*/
     .popupContainer{
-        position: inherit;
-        left: 10%;
         width: 300px;
+        left: 10%;
     }
+}
+
+#cartButtons{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba(102, 102, 102, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
