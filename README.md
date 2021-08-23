@@ -1,5 +1,5 @@
 ## About Project
-Live Demo: https://jolenechong.github.io/shoppingCart-javascript/
+Live Demo: https://jolenechong.github.io/shoppingCart-javascript/ <br>
 Source Code: https://github.com/jolenechong/shoppingCart-javascript
 - a fun, resppnsive javascript shopping cart
 - cart items and price are stored in a list in javascript
@@ -20,5 +20,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 ## Contact
-Jolene - [jolenechong7@gmail.com](mailto:jolenechong7@gmail.com)
+Jolene - [jolenechong7@gmail.com](mailto:jolenechong7@gmail.com) <br>
 Project Link: https://github.com/jolenechong/shoppingCart-javascript
