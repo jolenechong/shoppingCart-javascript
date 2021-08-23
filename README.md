@@ -1,4 +1,4 @@
-## About Projects
+## About Project
 Live Demo: https://jolenechong.github.io/shoppingCart-javascript/
 Source Code: https://github.com/jolenechong/shoppingCart-javascript
 - a fun, resppnsive javascript shopping cart
